@@ -1,3 +1,5 @@
+// TODO Remove break input.
+
 let workDuration = 25;
 let breakDuration = 5;
 let timerInterval;
@@ -12,7 +14,6 @@ document.getElementById('stop-button').addEventListener('click', stopTimer);
 
 function startTimer() {
   workDuration = parseInt(document.getElementById('work-duration').value);
-  breakDuration = parseInt(document.getElementById('break-duration').value);
   currentTime = workDuration * 60;
   isRunning = true;
   isPaused = false;
@@ -50,13 +51,6 @@ function updateTimer() {
       isRunning = false;
       clearInterval(timerInterval);
       endSound.play();
-      if (workDuration > 0) {
-        workDuration--;
-        currentTime = breakDuration * 60;
-        document.getElementById('timer-display').textContent = 'Break';
-      } else {
-        document.getElementById('timer-display').textContent = 'Work';
-      }
     }
   }
 }
@@ -64,3 +58,4 @@ function updateTimer() {
 function padZero(number) {
   return (number < 10 ? '0' : '') + number;
 }
+
