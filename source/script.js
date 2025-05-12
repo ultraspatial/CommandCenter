@@ -1,4 +1,3 @@
-// TODO Remove break input.
 
 let workDuration = 25;
 let breakDuration = 5;
