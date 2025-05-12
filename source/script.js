@@ -4,6 +4,7 @@ let timerInterval;
 let isRunning = false;
 let isPaused = false;
 let currentTime = 0;
+const endSound = new Audio('01_bedside.ogg');
 
 document.getElementById('start-button').addEventListener('click', startTimer);
 document.getElementById('pause-button').addEventListener('click', pauseTimer);
@@ -48,12 +49,13 @@ function updateTimer() {
     if (currentTime === 0) {
       isRunning = false;
       clearInterval(timerInterval);
+      endSound.play();
       if (workDuration > 0) {
         workDuration--;
         currentTime = breakDuration * 60;
-        document.getElementById('timer-display').textContent = 'Break time!';
+        document.getElementById('timer-display').textContent = 'Break';
       } else {
-        document.getElementById('timer-display').textContent = 'Time\'s up!';
+        document.getElementById('timer-display').textContent = 'Work';
       }
     }
   }
